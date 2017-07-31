@@ -1,0 +1,18 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "Todo list application",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "clear && node index.js",
+    "watch": "clear && nodemon --config nodemon.json index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Linn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mustache-express": "^1.2.5"
+  }
+}
