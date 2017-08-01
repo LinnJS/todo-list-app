@@ -16,30 +16,30 @@
 
     {{#anyItem}}
 
-    <p>Uncompleted Task</p>
-    <ul>
-      {{#uncompleted}}
-        <li>
-          <form class="" action="/markComplete" method="post">
-            <label for="id"></label>
-            <button type="submit" name="id" value="{{id}}">Check</button>
-            {{description}}
-          </form>
-        </li>
-      {{/uncompleted}}
-    </ul>
+      <p>Uncompleted Task</p>
+      <ul>
+        {{#uncompleted}}
+          <li>
+            <form class="" action="/markComplete" method="post">
+              <label for="id"></label>
+              <button type="submit" name="id" value="{{id}}">Check</button> {{description}}
+            </form>
+          </li>
+        {{/uncompleted}}
+      </ul>
 
-    <p>Completed Tasks</p>
-    <ul>
-      {{#completed}}
-        <li>
-          <span>{{description}}</span>
-        </li>
-      {{/completed}}
-    </ul>
+      <p>Completed Tasks</p>
+      <ul>
+        {{#completed}}
+          <li>
+            <span>{{description}}</span>
+          </li>
+        {{/completed}}
+      </ul>
     {{/anyItem}}
     {{^anyItem}}
-    enter an item to get started
+    <h2>What needs to be done?</h2>
+    <h3>Add to the Todo List above ^.^</h3>
     {{/anyItem}}
   </body>
 

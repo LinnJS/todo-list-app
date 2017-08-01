@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(expressValidator())
 app.use(express.static('public'))
-app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}))
+app.use(expressSession({secret: 'max', saveUninitialized: true, resave: false}))
 
 app.engine('mustache', mustacheExpress())
 app.set('views', './views')
@@ -19,29 +19,27 @@ app.set('view engine', 'mustache')
 
 const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
 
-app.get("/login", (req, res) => {
-  // display the form to login
-  res.render('login', {
-    title: 'loginValidation',
-    success: false,
-    errors: req.session.errors
-  })
-  req.session.errors = null
-})
-app.post("/login" (req, res) => {
-  // set session
-  //redirect to /
-})
-
-const checkAuthenication = (req, res, next) => {
-  if (req.session.username) {
-    next()
-  } else {
-    res.redirect("/login")
-  }
-}
-
-app.use(checkAuthenication)
+// app.get("/login", (req, res) => {
+//   // display the form to login
+//   res.render('login')
+//
+// })
+// app.post("/login" (req, res) => {
+//   // set session
+//
+//   //redirect to /
+//   res.redirect('/')
+// })
+// 
+// const checkAuthenication = (req, res, next) => {
+//   if (req.session.username) {
+//     next()
+//   } else {
+//     res.redirect("/login")
+//   }
+// }
+//
+// app.use(checkAuthenication)
 
 app.get('/', (req, res) => {
   const templateData = {
