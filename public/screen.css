@@ -4,16 +4,20 @@
 
 body {
   font-family: sans-serif;
-  text-align: center;
-  padding-top: 3em;
+  padding-top: 1em;
 }
 
-.loginWrapper{
-  margin: 15em;
-  background-color: red;
+.listWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: red;
+margin: 2em;
 }
 
-.loginContainer{
-  background-color: blue;
-
+.listContainer {
+background-color: blue;
+margin: 1em;
+width: 25em;
+text-align: center;
 }

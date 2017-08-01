@@ -66,9 +66,8 @@ app.post('/addTodo', (req, res) => {
     spaces: 2
   }, err => {
     console.log(`todos.json error ${err}`)
+    res.redirect('/')
   })
-
-  res.redirect('/')
 })
 
 app.post('/markComplete', (req, res) => {
@@ -87,9 +86,8 @@ app.post('/markComplete', (req, res) => {
     spaces: 2
   }, err => {
     console.log(`todos.json error: ${err}`)
+    res.redirect('/')
   })
-
-  res.redirect('/')
 })
 
 app.listen(3000, () => {
