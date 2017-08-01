@@ -17,8 +17,6 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
-// const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
-
 // app.get("/login", (req, res) => {
 //   // display the form to login
 //   res.render('login')
@@ -61,21 +59,12 @@ app.post('/addTodo', (req, res) => {
     completed: false,
     description: newTodoDescript
   })
-  console.log(todoList)
 
-  // jsonfile.writeFile('todos.json', todoList, {
-  //   spaces: 2
-  // }, err => {
-  // })
   req.session.todoList = todoList
   res.redirect('/')
 })
 
 app.post('/markComplete', (req, res) => {
-  // const description = req.body.description
-  // completedList.push(description)
-  // const indexOfItem = todoList.indexOf(description)
-  // todoList.splice(indexOfItem, 1)
   const todoList = req.session.todoList || []
   const id = parseInt(req.body.id)
   const todo = todoList.find(todo => todo.id === id)
@@ -84,13 +73,6 @@ app.post('/markComplete', (req, res) => {
     todo.completed = true
     req.session.todoList = todoList
   }
-
-  // jsonfile.writeFile('todos.json', todoList, {
-  //   spaces: 2
-  // }, err => {
-  //   console.log(`todos.json error: ${err}`)
-  // })
-
   res.redirect('/')
 })
 
