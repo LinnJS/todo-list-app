@@ -4,22 +4,17 @@ const bodyParser = require('body-parser')
 const jsonfile = require('jsonfile')
 const app = express()
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static('public'))
 
 app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
-// make a new jsonfile, give it a filename and an object template as arguments
-// delete static lists, templateData, and the jsonfile.writeFile we just made.
-// change our gets and posts to use the new jsonfile instead of the static lists.
-
-const todoList = ['Fix car', 'Meal prep', 'Bring meal']
-const completedList = ['Wait for rain to stop', 'Fix Angel\'s phone']
+const todoList = []
+const completedList = []
 
 app.get('/', (req, res) => {
-
   const templateData = {
     uncompleted: todoList.filter(todo => !todo.completed),
     completed: completedList
@@ -41,7 +36,7 @@ app.post('/markComplete', (req, res) => {
 
   const indexOfItem = todoList.indexOf(description)
 
-  todoList.splice(indexOfItem, 1)
+  todoList.slice(indexOfItem, 1)
   res.redirect('/')
 })
 

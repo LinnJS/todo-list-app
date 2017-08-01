@@ -3,26 +3,28 @@
 
   <head>
     <meta charset="utf-8" lang="en">
-    <title>Todo!</title>
+    <title>Todo's!</title>
+    <link rel="stylesheet" href="/screen.css">
   </head>
 
   <body>
-    <p>TODO's</p>
+    <h1>Todo's</h1>
     <form action="/addTodo" method="post">
-      <input type="text" name="description" value="" placeholder="Add a todo">
-      <button type="submit">Add a task!</button>
+      <input type="text" name="description" value="" placeholder="Add a TODO!">
+      <button type="submit">Add</button>
     </form>
+    <p>Uncompleted Task</p>
     <ul>
       {{#uncompleted}}
         <li>
           <form class="" action="/markComplete" method="post">
             <label for="id" >{{.}}</label>
-            <button type="submit" name="description" value="{{.}}">Mark Complete</button>
+            <button type="submit" name="description" value="{{.}}">Check</button>
           </form>
         </li>
       {{/uncompleted}}
     </ul>
-    <h1>Completed Tasks</h1>
+    <p>Completed Tasks</p>
     <ul>
       {{#completed}}
         <li>

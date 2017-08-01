@@ -1,3 +1,4 @@
 {
-  "ext": "*.js, *.mustache, *.css"
+  "ext": "*.js, *.mustache, *.css",
+  "verbose": true
 }
