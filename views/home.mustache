@@ -13,25 +13,34 @@
       <input type="text" name="description" value="" placeholder="Add a TODO!">
       <button type="submit">Add</button>
     </form>
+
+    {{#anyItem}}
+
     <p>Uncompleted Task</p>
     <ul>
       {{#uncompleted}}
         <li>
           <form class="" action="/markComplete" method="post">
-            <label for="id" >{{.}}</label>
-            <button type="submit" name="description" value="{{.}}">Check</button>
+            <label for="id"></label>
+            <button type="submit" name="id" value="{{id}}">Check</button>
+            {{description}}
           </form>
         </li>
       {{/uncompleted}}
     </ul>
+
     <p>Completed Tasks</p>
     <ul>
       {{#completed}}
         <li>
-          <span>{{.}}</span>
+          <span>{{description}}</span>
         </li>
       {{/completed}}
     </ul>
+    {{/anyItem}}
+    {{^anyItem}}
+    enter an item to get started
+    {{/anyItem}}
   </body>
 
 </html>
