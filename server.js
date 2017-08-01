@@ -36,7 +36,7 @@ app.post('/markComplete', (req, res) => {
 
   const indexOfItem = todoList.indexOf(description)
 
-  todoList.slice(indexOfItem, 1)
+  todoList.splice(indexOfItem, 1)
   res.redirect('/')
 })
 
