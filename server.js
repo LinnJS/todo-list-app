@@ -17,21 +17,28 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
-const todoList = jsonfile.readFileSync('todos.json', {throws:false}) || []
+const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
 
-app.get("/login", (req, res) =>{
+app.get("/login", (req, res) => {
   // display the form to login
+  res.render('login', {
+    title: 'loginValidation',
+    success: false,
+    errors: req.session.errors
+  })
+  req.session.errors = null
 })
-app.post("/login"(req,res) =>{
+app.post("/login" (req, res) => {
   // set session
   //redirect to /
 })
-const checkAuthenication = (req, res,next) => {
- if (req.session.username){
-   next()
- } else{
-   res.redirect("/login")
- }
+
+const checkAuthenication = (req, res, next) => {
+  if (req.session.username) {
+    next()
+  } else {
+    res.redirect("/login")
+  }
 }
 
 app.use(checkAuthenication)
