@@ -17,7 +17,7 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
-const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
+// const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
 
 // app.get("/login", (req, res) => {
 //   // display the form to login
@@ -42,6 +42,7 @@ const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
 // app.use(checkAuthenication)
 
 app.get('/', (req, res) => {
+  const todoList = req.session.todoList || []
   const templateData = {
     uncompleted: todoList.filter(todo => !todo.completed),
     completed: todoList.filter(todo => todo.completed),
@@ -52,8 +53,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addTodo', (req, res) => {
+  const todoList = req.session.todoList || []
   const newTodoDescript = req.body.description
-
   //todoList.push(newTodoDescript)
   todoList.push({
     id: todoList.length + 1,
@@ -62,12 +63,12 @@ app.post('/addTodo', (req, res) => {
   })
   console.log(todoList)
 
-  jsonfile.writeFile('todos.json', todoList, {
-    spaces: 2
-  }, err => {
-    console.log(`todos.json error ${err}`)
-    res.redirect('/')
-  })
+  // jsonfile.writeFile('todos.json', todoList, {
+  //   spaces: 2
+  // }, err => {
+  // })
+  req.session.todoList = todoList
+  res.redirect('/')
 })
 
 app.post('/markComplete', (req, res) => {
@@ -75,19 +76,22 @@ app.post('/markComplete', (req, res) => {
   // completedList.push(description)
   // const indexOfItem = todoList.indexOf(description)
   // todoList.splice(indexOfItem, 1)
+  const todoList = req.session.todoList || []
   const id = parseInt(req.body.id)
   const todo = todoList.find(todo => todo.id === id)
 
   if (todo) {
     todo.completed = true
+    req.session.todoList = todoList
   }
 
-  jsonfile.writeFile('todos.json', todoList, {
-    spaces: 2
-  }, err => {
-    console.log(`todos.json error: ${err}`)
-    res.redirect('/')
-  })
+  // jsonfile.writeFile('todos.json', todoList, {
+  //   spaces: 2
+  // }, err => {
+  //   console.log(`todos.json error: ${err}`)
+  // })
+
+  res.redirect('/')
 })
 
 app.listen(3000, () => {

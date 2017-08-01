@@ -11,13 +11,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-background-color: red;
-margin: 2em;
+  background-color: red;
+  margin: 2em;
 }
 
 .listContainer {
-background-color: blue;
-margin: 1em;
-width: 25em;
-text-align: center;
+  background-color: blue;
+  margin: 1em;
+  width: 25em;
+  text-align: center;
 }
