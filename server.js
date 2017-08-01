@@ -30,7 +30,7 @@ const todoList = jsonfile.readFileSync('todos.json', {throws: false}) || []
 //   //redirect to /
 //   res.redirect('/')
 // })
-// 
+//
 // const checkAuthenication = (req, res, next) => {
 //   if (req.session.username) {
 //     next()
@@ -72,14 +72,13 @@ app.post('/addTodo', (req, res) => {
 })
 
 app.post('/markComplete', (req, res) => {
-  //const description = req.body.description
-  const id = parseInt(req.body.id)
-
-  //  completedList.push(description)
-  const todo = todoList.find(todo => todo.id === id)
-
+  // const description = req.body.description
+  // completedList.push(description)
   // const indexOfItem = todoList.indexOf(description)
   // todoList.splice(indexOfItem, 1)
+  const id = parseInt(req.body.id)
+  const todo = todoList.find(todo => todo.id === id)
+
   if (todo) {
     todo.completed = true
   }
