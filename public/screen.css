@@ -7,6 +7,10 @@ body {
   padding-top: 1em;
 }
 
+li {
+  width: 100%;
+}
+
 .listWrapper {
   display: flex;
   justify-content: center;
@@ -16,7 +20,7 @@ body {
 }
 
 .listContainer {
-  background-color: blue;
+  background-color: #666;
   margin: 1em;
   width: 25em;
   text-align: center;

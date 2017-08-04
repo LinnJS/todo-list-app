@@ -1,7 +1,6 @@
 const express = require('express')
 const mustacheExpress = require('mustache-express')
 const bodyParser = require('body-parser')
-const jsonfile = require('jsonfile')
 const expressSession = require('express-session')
 const expressValidator = require('express-validator')
 
@@ -17,27 +16,27 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
-// app.get("/login", (req, res) => {
-//   // display the form to login
-//   res.render('login')
-//
-// })
-// app.post("/login" (req, res) => {
-//   // set session
-//
-//   //redirect to /
-//   res.redirect('/')
-// })
-//
-// const checkAuthenication = (req, res, next) => {
-//   if (req.session.username) {
-//     next()
-//   } else {
-//     res.redirect("/login")
-//   }
-// }
-//
-// app.use(checkAuthenication)
+app.get('/login', (req, res) => {
+  // display the form to login
+  res.render('login')
+
+})
+
+app.post('/login', (req, res) => {
+  // set session
+  const todoList = req.session.todoList || []
+  //redirect to /
+  res.redirect('/')
+})
+
+const checkAuthenication = (req, res, next) => {
+  if (req.session.username) {
+    next()
+  } else {
+    res.redirect('login')
+  }
+}
+app.use(checkAuthenication)
 
 app.get('/', (req, res) => {
   const todoList = req.session.todoList || []
