@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(expressValidator())
 app.use(express.static('public'))
-app.use(expressSession({secret: 'max', saveUninitialized: true, resave: false}))
+app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}))
 
 app.engine('mustache', mustacheExpress())
 app.set('views', './views')

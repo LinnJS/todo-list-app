@@ -7,6 +7,10 @@ body {
   padding-top: 1em;
 }
 
+h1 {
+  text-align: center;
+}
+
 li {
   width: 100%;
 }
@@ -24,4 +28,26 @@ li {
   margin: 1em;
   width: 25em;
   text-align: center;
+}
+
+.loginWrapper {
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+
+label {
+  margin-right: .2em;
+}
+
+
+.input {
+  margin: 1em;
+}
+
+#btn {
+display: flex;
+justify-content: center;
 }
