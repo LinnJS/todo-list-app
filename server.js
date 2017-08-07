@@ -17,20 +17,34 @@ app.set('views', './views')
 app.set('view engine', 'mustache')
 
 app.get('/login', (req, res) => {
-  // display the form to login
   res.render('login')
-
 })
 
-app.post('/login', (req, res) => {
-  // set session
-  const todoList = req.session.todoList || []
-  //redirect to /
+app.post('/login', (req, res, err) => {
+  const login = req.session.login
+
   res.redirect('/')
 })
 
+app.post('/loginSubmit', (req, res, err) => {
+  const auth = {
+    "email": "justin@gmail.com",
+    "password": "password"
+  }
+  const input = {
+    "email": req.body.email,
+    "password": req.body.password
+  }
+  req.session.login = input
+  if (req.session.login) {
+    res.redirect('/')
+  } else {
+    res.render('login')
+  }
+})
+
 const checkAuthenication = (req, res, next) => {
-  if (req.session.username) {
+  if (req.session.login) {
     next()
   } else {
     res.redirect('login')
@@ -76,5 +90,5 @@ app.post('/markComplete', (req, res) => {
 })
 
 app.listen(3000, () => {
-  console.log('Listening level over level 3000!')
+  console.log('Listening over level 3000!')
 })
