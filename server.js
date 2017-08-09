@@ -21,7 +21,6 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', (req, res, err) => {
-  const login = req.session.login
 
   res.redirect('/')
 })
@@ -31,12 +30,13 @@ app.post('/loginSubmit', (req, res, err) => {
     "email": "justin@gmail.com",
     "password": "password"
   }
+
   const input = {
     "email": req.body.email,
     "password": req.body.password
   }
-  req.session.login = input
-  if (req.session.login) {
+  req.session.isLoggedIn = req.body.email === auth.email && req.body.password === auth.password
+  if (req.session.isLoggedIn) {
     res.redirect('/')
   } else {
     res.render('login')
@@ -44,7 +44,7 @@ app.post('/loginSubmit', (req, res, err) => {
 })
 
 const checkAuthenication = (req, res, next) => {
-  if (req.session.login) {
+  if (req.session.isLoggedIn) {
     next()
   } else {
     res.redirect('login')
