@@ -1,33 +1,63 @@
 * {
   list-style: none;
+  font-family: 'IM Fell Great Primer', serif;
 }
 
 body {
   font-family: sans-serif;
   padding-top: 1em;
+  background-image: url('./todo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {
   text-align: center;
+  color: #fefffe;
+}
+
+h2 {
+  margin: 0;
+  padding-top: 0.2em;
+}
+
+h3 {
+  text-align: left;
 }
 
 li {
   width: 100%;
+  text-align: left;
+  /*line-height: 1em;*/
+  margin: 1.6em;
 }
 
-.listWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  margin: 2em;
+label {
+  margin-right: 0.2em;
 }
 
-.listContainer {
-  background-color: #666;
+.container {
   margin: 1em;
   width: 25em;
   text-align: center;
+}
+
+.add {
+  margin-top: 3em;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note {
+  margin-top: 2em;
+  height: 25em;
+  background-image: url('./stickyNote.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .loginWrapper {
@@ -37,17 +67,16 @@ li {
   align-content: center;
 }
 
-
-label {
-  margin-right: .2em;
+.input {
+  margin: 0 1em 0 2em;
+  padding-left: 2em;
 }
 
-
-.input {
-  margin: 1em;
+.completed {
+  text-decoration: line-through;
 }
 
 #btn {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }

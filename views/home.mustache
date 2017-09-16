@@ -3,34 +3,35 @@
 
   <head>
     <link rel="stylesheet" href="screen.css">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer" rel="stylesheet">
     <meta charset="utf-8" lang="en">
-    <title>Todo's!</title>
+    <title>Todo's</title>
   </head>
 
   <body>
-    <div class="listWrapper">
+    <div class="container">
+      <h1>How might we make today productive?</h1>
+      <form action="/addTodo" method="post">
+        <div class="note">
+        <input class="add" type="text" name="description" value="" placeholder="Add a Task!">
+        <button class="add" type="submit">Add</button>
+      </form>
       <div class="listContainer">
-
-        <h1>Todo's</h1>
-        <form action="/addTodo" method="post">
-          <input type="text" name="description" value="" placeholder="Add a TODO!">
-          <button type="submit">Add</button>
-        </form>
-
         {{#anyItem}}
-          <p>Uncompleted Task</p>
+          <!-- <h3>Uncompleted Task</h3> -->
           <ul>
             {{#uncompleted}}
               <li>
-                <form class="" action="/markComplete" method="post">
-                  <label for="id"></label>
-                  <button type="submit" name="id" value="{{id}}">Check</button> {{description}}
+                <form action="/markComplete" method="post">
+                  <label class="item" for="id"></label>
+                  <button class="item" type="submit" name="id" value="{{id}}">Check</button> {{description}}
                 </form>
               </li>
             {{/uncompleted}}
           </ul>
 
-          <p>Completed Tasks</p>
+          <!-- <h3>Completed Tasks</h3> -->
+          <div class="completed">
           <ul>
             {{#completed}}
               <li>
@@ -41,8 +42,10 @@
         {{/anyItem}}
         {{^anyItem}}
         <h2>What needs to be done?</h2>
-        <h3>Add to the Todo List above ^.^</h3>
+        <h2>Add to a task to get the day started!</h2>
         {{/anyItem}}
+        </div>
+      </div>
       </div>
     </div>
   </body>
