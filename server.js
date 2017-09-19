@@ -89,6 +89,4 @@ app.post('/markComplete', (req, res) => {
   res.redirect('/')
 })
 
-app.listen(3000, () => {
-  console.log('Listening over level 3000!')
-})
+app.listen(process.env.PORT || 3000)
