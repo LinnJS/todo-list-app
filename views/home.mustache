@@ -13,8 +13,8 @@
       <h1>How might we make today productive?</h1>
       <form action="/addTodo" method="post">
         <div class="note">
-        <input class="add" type="text" name="description" value="" placeholder="Add a Task!">
-        <button class="add" type="submit">Add</button>
+          <input class="add" type="text" name="description" value="" placeholder="Add a Task!">
+          <button class="add" type="submit">Add</button>
       </form>
       <div class="listContainer">
         {{#anyItem}}
@@ -32,13 +32,13 @@
 
           <!-- <h3>Completed Tasks</h3> -->
           <div class="completed">
-          <ul>
-            {{#completed}}
-              <li>
-                <span>{{description}}</span>
-              </li>
-            {{/completed}}
-          </ul>
+            <ul>
+              {{#completed}}
+                <li>
+                  <span>{{description}}</span>
+                </li>
+              {{/completed}}
+            </ul>
         {{/anyItem}}
         {{^anyItem}}
         <h2>What needs to be done?</h2>
@@ -48,6 +48,9 @@
       </div>
       </div>
     </div>
-  </body>
 
+  </body>
+  <div class="extend">
+
+  </div>
 </html>

@@ -3,11 +3,17 @@
   font-family: 'IM Fell Great Primer', serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: sans-serif;
   padding-top: 1em;
   background-image: url('./todo.jpg');
   background-size: cover;
+  height: 100%;
+  background-position: top right;
   background-repeat: no-repeat;
 }
 
@@ -28,8 +34,7 @@ h3 {
 li {
   width: 100%;
   text-align: left;
-  /*line-height: 1em;*/
-  margin: 1.6em;
+  /*margin: 1.6em;*/
 }
 
 label {
