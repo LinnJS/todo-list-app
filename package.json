@@ -6,8 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon --config nodemon.json server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon --config nodemon.json server.js"
   },
   "author": "Justin Linn",
   "license": "ISC",

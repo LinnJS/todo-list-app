@@ -1,5 +1,5 @@
 {
   "ext": "*.js, *.mustache, *.css",
-  "ignore":"todos.json",
+  "ignore": "todos.json",
   "verbose": true
 }
