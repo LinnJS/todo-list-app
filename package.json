@@ -11,9 +11,9 @@
   "author": "Justin Linn",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "express-session": "^1.15.4",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "express-validator": "^3.2.1",
     "jsonfile": "^3.0.1",
     "mustache-express": "^1.2.5"
